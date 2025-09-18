@@ -10,6 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Cache Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-WebGLPractice-WebGL
+          restore-keys: |
+            Library-WebGLPractice-
+            Library-
+
+
       - name: Unity-Builder (WebGL)
         uses: game-ci/unity-builder@v4
         env:
@@ -19,4 +29,12 @@ jobs:
         with:
           targetPlatform: WebGL
 
-    
+      - name: Deploy to Blog (gh-pages)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.BLOG_REPO_PAT }}
+          external_repository: neckar28/neckar28.github.io
+          publish_branch: gh-pages
+          publish_dir: assets/webgl/CICD/
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
