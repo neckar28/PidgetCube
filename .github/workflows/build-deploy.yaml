@@ -35,6 +35,9 @@ jobs:
           personal_token: ${{ secrets.BLOG_REPO_PAT }}
           external_repository: neckar28/neckar28.github.io
           publish_branch: gh-pages
-          publish_dir: assets/webgl/CICD/
+          publish_dir: build/WebGL
+          destination_dir: assets/webgl/pidgetcube
+          keep_files: true
+          force_orphan: false
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
