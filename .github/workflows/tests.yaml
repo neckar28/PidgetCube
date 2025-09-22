@@ -33,5 +33,6 @@ jobs:
             githubToken: ${{ secrets.GITHUB_TOKEN }}
             unityVersion: 6000.0.41f1
             projectPath: .
+            customParameters: '-nographics'
 
 

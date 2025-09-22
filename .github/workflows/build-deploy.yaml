@@ -23,12 +23,22 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v4
 
+        - name: Cache Library
+          uses: actions/cache@v4
+          with:
+            path: Library
+            key: Library-WebGLPractice-WebGL
+            restore-keys: |
+              Library-WebGLPractice-
+              Library-
+
         - name: Unity tests
           uses: game-ci/unity-test-runner@v4
           with:
             githubToken: ${{ secrets.GITHUB_TOKEN }}
             unityVersion: 6000.0.41f1
             projectPath: .
+            customParameters: '-nographics'
 
   build:
     needs: tests
