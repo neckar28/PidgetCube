@@ -11,13 +11,13 @@ public class BloomControl : MonoBehaviour
 	private const float SinMax = Mathf.PI * 0.25f;
 	private float clickTime = -SinMax;
 
-	private void Start()
+	public void Start()
 	{
 		volume = GetComponent<Volume>();
 		volume.profile.TryGet<Bloom>(out bloom);
 	}
 
-	private void Update()
+	public void Update()
 	{
 		float currentTime = Time.time - clickTime;
 
