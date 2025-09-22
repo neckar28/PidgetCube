@@ -3,7 +3,10 @@ name: Build & Deploy WebGL
 on:
   push:
     branches: ["main"]
-
+    
+permissions:
+  contents: read
+  checks: write
 
 jobs:
   tests:
